@@ -4,11 +4,12 @@ FROM node:14.11-alpine
 LABEL MAINTAINER caiso-pro
 # カレントディレクトリの移動
 WORKDIR /usr/work
+# ホストPCのカレントディレクトリのファイルを、コンテナ内のカレントディレクトリにコピー
 COPY . .
-
+# パッケージマネージャを更新し、sudo, npm, gitコマンドをダウンロード
 RUN apk update && \
     apk add --no-cache sudo npm git
-
+# npmの初期化
 RUN npm init --yes
-RUN npm install -g webpack webpack-cli
-RUN npm install -g create-react-app
+# webpack, webpack-cli, create-react-app(reactアプリ構築ツール)のインストール
+RUN npm install -g webpack webpack-cli create-react-app
