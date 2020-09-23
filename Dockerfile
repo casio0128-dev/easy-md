@@ -2,7 +2,7 @@
 FROM node:14.11-alpine
 # 作成者の署名（不必要）
 LABEL MAINTAINER caiso-pro
-# 作業
+# カレントディレクトリの移動
 WORKDIR /usr/work
 COPY . .
 
